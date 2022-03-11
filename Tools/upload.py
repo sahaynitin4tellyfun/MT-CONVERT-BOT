@@ -30,7 +30,7 @@ async def upload_video(c, m, send, media_location, thumb_image_path, duration, w
                     c_time
                 )
          )
-     else:
+     elif:
          await c.send_document(
                 chat_id=m.chat.id,
                 document=media_location,
