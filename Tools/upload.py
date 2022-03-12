@@ -6,14 +6,14 @@ logger = logging.getLogger(__name__)
 import os
 import time
 import pyrogram
-from Tools.progress import progress_for_pyrogram
-from translation import Translation
+from functions.display_progress import progress_for_pyrogram
+from plugins.translation import Translation
 
 
 async def upload_video(c, m, send, media_location, thumb_image_path, duration, width, height):
       await send.edit(Translation.UPLOAD_START)
       c_time = time.time()
-      if m.text == "/converttovideo":
+      if m.text == "/convert":
          await c.send_video(
                 chat_id=m.chat.id,
                 video=media_location,
@@ -30,7 +30,7 @@ async def upload_video(c, m, send, media_location, thumb_image_path, duration, w
                     c_time
                 )
          )
-      if m.text == "/converttofile":
+      else:
          await c.send_document(
                 chat_id=m.chat.id,
                 document=media_location,
